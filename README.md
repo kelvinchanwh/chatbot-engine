@@ -1,3 +1,6 @@
-# CoffeeBot
+# Chatbot Engine
 
-A multi-lingual chatbot handling a basic conversation and it also sells you a cup of coffee ;-)
+* multilingual
+* interface to train your custom model
+* UI
+* async processing for good performance
