@@ -2,7 +2,7 @@ $(document).ready(function() {
   // TODO make configurable
   const port = 8080;
 
-  const load_chat = locale => {
+  const load_chat = lang => {
     // remove the previous chat window, if any
     $( "#webchat" ).empty();
 
@@ -16,7 +16,7 @@ $(document).ready(function() {
       selector: "#webchat",
       interval: 1000, // 1000 ms between each message
       initPayload: "hello",
-      customData: {}, // arbitrary custom data. Stay minimal as this will be added to the socket
+      customData: { 'lang': lang }, // arbitrary custom data. Stay minimal as this will be added to the socket
       socketUrl: socketUrl,
       socketPath: "/socket.io/",
       title: "Let's talk!",
