@@ -5,7 +5,7 @@ from flask import Flask, render_template, request
 from flask_socketio import SocketIO
 from utils.bot_factory import BotFactory
 
-logging.basicConfig(level=logging.INFO,
+logging.basicConfig(level=logging.WARN,
                     format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
                     datefmt='%m-%d %H:%M')
 
@@ -28,7 +28,7 @@ def on_session_request(message):
 
 
 @socketio.on('user_uttered')
-def on_user_uttered(message, methods=['GET', 'POST']):
+def on_user_uttered(message):
     custom_data = message.get('customData', {})
     lang = custom_data.get('lang', 'en')
     bot_request = {'text': message.get('message', '')}
@@ -38,5 +38,5 @@ def on_user_uttered(message, methods=['GET', 'POST']):
 
 if __name__ == '__main__':
     host = os.getenv('HOST', '0.0.0.0')
-    port = os.getenv('PORT', 5000)
+    port = int(os.getenv('PORT', 5000))
     socketio.run(app, host=host, port=port, use_reloader=False, debug=True)
