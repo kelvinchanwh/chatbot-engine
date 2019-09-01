@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  // TODO make configurable
-  const port = 8080;
 
   const load_chat = lang => {
     // remove the previous chat window, if any
@@ -9,9 +7,17 @@ $(document).ready(function() {
     // debug - don't preserve state upon page reload
     localStorage.clear();
 
-    const socketUrl = `${location.protocol}//${location.hostname}:${port}`;
-    const serverUrl = `${location.protocol}//${location.hostname}${location.port ? ':' + location.port : ''}`;
+    // Support TLS-specific URLs, when appropriate.
+    if (window.location.protocol == "https:") {
+        var ws_scheme = "wss:";
+    } else {
+        var ws_scheme = "ws:"
+    };
 
+
+    const socketUrl = `${ws_scheme}//${location.hostname}${location.port ? ':' + location.port : ''}`;
+    const serverUrl = `${location.protocol}//${location.hostname}${location.port ? ':' + location.port : ''}`;
+console.log(socketUrl);
     WebChat.default.init({
       selector: "#webchat",
       interval: 1000, // 1000 ms between each message
