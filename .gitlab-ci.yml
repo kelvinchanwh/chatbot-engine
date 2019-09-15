@@ -5,4 +5,4 @@ production:
   - apt-get install -y nodejs
   - apt-get install -y gunicorn
   - gem install dpl
-  - dpl --provider=heroku --app=chatbot-engine --api-key=$HEROKU_API_KEY
+  - dpl --provider=heroku --app=chatbot-engine-web --api-key=$HEROKU_API_KEY

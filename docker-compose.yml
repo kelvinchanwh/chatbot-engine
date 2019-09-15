@@ -1,9 +1,9 @@
 version: '3.0'
 services:
-  server:
+  web:
     build: .
     volumes:
-      - .:/app
+      - ./models/:/app/models
     entrypoint:
       - python
       - app.py
@@ -12,4 +12,5 @@ services:
     environment:
       - HOST=0.0.0.0
       - PORT=8080
+      - ACTION_ENDPOINT=http://localhost:8080/webhook
     restart: always

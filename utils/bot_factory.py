@@ -1,7 +1,9 @@
+import os
 import logging
-import uuid
-from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
+import sys, getopt
+from pathlib import Path
+from rasa.utils.endpoints import EndpointConfig
+from rasa.core.agent import Agent
 from collections.abc import Mapping
 
 logger = logging.getLogger(__name__)
@@ -12,7 +14,6 @@ SUPPORTED_LANGS = {
     DEFAULT_LANG: 'english',
     'de': 'german'
 }
-
 
 class LazyDict(Mapping):
     def __init__(self, *args, **kw):
@@ -47,6 +48,12 @@ class BotFactory:
             bots_dict = dict((k, (self.__createInstance, k)) for k in SUPPORTED_LANGS.keys())
             self.dict = LazyDict(bots_dict)
 
+    def __exists_model(self, path):
+        return Path(path).is_file()
+
+    def __get_model(self, lang):
+        return '/app/models/chat-model-{}.tar.gz'.format(lang)
+
     @staticmethod
     def getInstance(lang):
         if BotFactory.__instance == None:
@@ -55,15 +62,19 @@ class BotFactory:
 
     def __createInstance(self, lang):
         if not lang in SUPPORTED_LANGS:
-            logger.warn(f'Unsupported language: ${lang}. The default will be used: ${DEFAULT_LANG}')
+            logger.warning(f'Unsupported language: ${lang}. The default will be used: ${DEFAULT_LANG}')
 
-        chatbot = ChatBot(uuid.uuid4().hex)
+        model = self.__get_model(lang)
 
-        # Create a new trainer for the chatbot
-        trainer = ChatterBotCorpusTrainer(chatbot)
+        if not self.__exists_model(model):
+            print('Model not found: "{}"'.format(model))
+            sys.exit(2)
 
-        # Train the chatbot based on the english corpus
-        selected_lang = SUPPORTED_LANGS.get(lang, DEFAULT_LANG)
-        trainer.train(f'chatterbot.corpus.{selected_lang}')
+        url = os.getenv('ACTION_ENDPOINT')
+        print('action endpoint: "{}"'.format(url))
+        agent = Agent.load(
+            model,
+            action_endpoint=EndpointConfig(url)
+        )
 
-        return chatbot
+        return agent
