@@ -44,4 +44,5 @@ With a little bit of an extra effort, it is perfectly possible to enable multipl
 
 ## Attribution
 - [Rasa](https://rasa.com) for providing such an awesome framework.
-- 
+- [Emojious](https://www.iconfinder.com/iconsets/flags-37?utm_source=sharing-feature&utm_medium=social&utm_campaign=sharing-feature&utm_content=link) for all the amazing icons free of charge
+- [Chatbots Life](https://chatbotslife.com/) for sharing invaluable insights and guidance
