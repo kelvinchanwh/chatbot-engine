@@ -76,6 +76,11 @@ def __parse_bot_response(bot_response):
     if 'image' in bot_response:
         return { 'attachment': { 'type': 'image', 'payload': { 'src': bot_response['image'] }}}
     else:
+        if 'buttons' in bot_response:
+            # The JS client only shows the buttons when they arrive as 'quick_replies'
+            bot_response['quick_replies'] = bot_response['buttons']
+            del bot_response['buttons']
+
         # Remove the 'recipient_id', because the client can't handle it
         return {k: v for k, v in bot_response.items() if not k.startswith('recipient_id')}
 

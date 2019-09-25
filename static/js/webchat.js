@@ -17,7 +17,7 @@ $(document).ready(function() {
 
     const socketUrl = `${ws_scheme}//${location.hostname}${location.port ? ':' + location.port : ''}`;
     const serverUrl = `${location.protocol}//${location.hostname}${location.port ? ':' + location.port : ''}`;
-console.log(socketUrl);
+
     WebChat.default.init({
       selector: "#webchat",
       interval: 1000, // 1000 ms between each message
