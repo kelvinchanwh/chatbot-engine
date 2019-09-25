@@ -21,7 +21,7 @@ console.log(socketUrl);
     WebChat.default.init({
       selector: "#webchat",
       interval: 1000, // 1000 ms between each message
-      initPayload: "hello",
+      initPayload: "utter_welcome",
       customData: { 'lang': lang }, // arbitrary custom data. Stay minimal as this will be added to the socket
       socketUrl: socketUrl,
       socketPath: "/socket.io/",
