@@ -3,6 +3,9 @@
 - got it
 - understood
 - k
+- good
+- fine
+    
 
 ## intent:affirm
 - yes
@@ -10,6 +13,12 @@
 - of course
 - that sounds good
 - correct
+- all right
+- allright
+- good
+- sure
+- go for it
+
 
 ## intent:bot_welcome
 - bot_welcome
@@ -20,13 +29,42 @@
 - coffee time
 - can i get coffee please?
 - coffee plz
+- i’d like a coffee
+- i’d like some coffee
+- i’d like a cup of coffee
+- i’d like to order a coffee
+- i’d like to order some coffee
+- i’d like to order a cup of coffee
+- i want a coffee
+- i want some coffee
+- i want a cup of coffee
+- i need a coffee
+- i need some coffee
+- i need a cup of coffee
+- can I have...
+- can you make me...?
+- can I order...?
+- coffee, please
 
 ## intent:coffee_type
-- i want [latte](coffee_type)
-- can i get [americano](coffee_type) please
-- a [macchiato](coffee_type), thank you
-- a [pour over](coffee_type), please
-- [americano](coffee_type) please
+- i’d like to order a cup of [latte](coffee_type)
+- can i get a [macchiato](coffee_type)?
+- can i get an [macchiato](coffee_type)?
+- i’d like to have some [cortado](coffee_type)
+- [americano](coffee_type) pls
+- [cappuccino](coffee_type), please
+- [chai](coffee_type) thank you
+- [decaf](coffee_type)
+- a cup of [doppio](coffee_type)
+- a [double](coffee_type), thx
+- just a [half-caff](coffee_type)
+- [latte](coffee_type) would be nice
+- hmm, [macchiato](coffee_type)?
+- [mocha](coffee_type) thx
+- [pour over](coffee_type) thank you
+- a cuppa of [brewed coffee](coffee_type)
+- some delicious [iced](coffee_type)
+- would you have [matcha latte](coffee_type)?
 
 ## intent:deny
 - no
@@ -96,6 +134,15 @@
 - ty
 - ty
 
+## intent:out_of_scope
+- blah
+- just random stuff
+- whatever
+- wofhohewoihfewoofrw
+- yadyyadyda
+- owfhwoofwwf wofihwewf 70w90fwy0wyfw
+- 42
+
 ## synonym:americano
 - long black
 - american coffee
@@ -103,18 +150,29 @@
 
 ## synonym:latte
 - cafe au lait
+- cafe latte
 - caffelatte
 - milchkaffee
 
+## synonym:macchiato
+- latte macchiato
+- espresso macchiato
+
 ## lookup:coffee_types
 - americano
+- black coffee
 - cappuccino
 - chai
+- cortado
 - decaf
 - doppio
 - double
+- dripp coffee
 - half-caff
 - latte
+- long black
+- espresso
+- espressino
 - macchiato
 - mocha
 - pour over

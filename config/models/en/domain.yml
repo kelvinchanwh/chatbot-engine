@@ -42,16 +42,7 @@ templates:
     - text: Great idea! Hope it won't affect your sleep tonight.
     - text: Okay, if you insist.
   utter_default_fallback:
-    - buttons:
-        - payload: coffee
-          title: Can I get coffee?
-        - payload: sad
-          title: Feeling sad
-        - payload: hi
-          title: Just saying hi
-        - payload: bye
-          title: Nah, see you then
-      text: Ooops, to be frank I didn't quite get you :-) Come again.
+    - text: Ooops, to be frank I didn't quite get you :-) Come again.
   utter_did_that_help:
     - text: Did that help you?
   utter_enjoy_your_drink:
@@ -83,13 +74,7 @@ templates:
     - text: Hmm, I don't know how to brew this one!
     - text: Ooops, I've no clue what you kind of coffee you mean.
   utter_welcome:
-    - buttons:
-        - payload: hi
-          title: Sounds good
-        - payload: bye
-          title: Maybe later
-      text: Hi, my name is Mr. Bot. We can greet each other or you can try to ask for
-        coffee ;-)
+    - text: Hi, my name is Mr. Bot. We can greet each other or you can try to ask for coffee ;-)
   utter_which_coffee:
     - text: Which one do you want?
     - text: What kind of coffee do you fancy?
