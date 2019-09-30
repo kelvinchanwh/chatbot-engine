@@ -47,19 +47,27 @@
 - coffee, please
 
 ## intent:coffee_type
-- i’d like to order a cup of [latte](coffee_type)
-- can i get a [macchiato](coffee_type)?
-- can i get an [macchiato](coffee_type)?
+- i’d like to order a cup of [americano](coffee_type)
+- i’d like to order a cup of [espresso](coffee_type)
+- i’d like to order a cup of [black coffee](coffee_type)
+- can i get a [cappuccino](coffee_type)?
+- can i get a [chai](coffee_type)?
+- can i get an [cortado](coffee_type)?
+- can i get an [espressino](coffee_type)?
 - i’d like to have some [cortado](coffee_type)
-- [americano](coffee_type) pls
+- [decaf](coffee_type) pls
 - [cappuccino](coffee_type), please
 - [chai](coffee_type) thank you
 - [decaf](coffee_type)
 - a cup of [doppio](coffee_type)
 - a [double](coffee_type), thx
+- i want [dripp coffee](coffee_type), thanks!
 - just a [half-caff](coffee_type)
 - [latte](coffee_type) would be nice
+- would you make me a [long black](coffee_type), please?
+-  [long black](coffee_type), please?
 - hmm, [macchiato](coffee_type)?
+- i'd like some delicious [macchiato](coffee_type) 
 - [mocha](coffee_type) thx
 - [pour over](coffee_type) thank you
 - a cuppa of [brewed coffee](coffee_type)
