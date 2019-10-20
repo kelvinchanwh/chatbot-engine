@@ -84,8 +84,19 @@ def __parse_bot_response(bot_response):
         # Remove the 'recipient_id', because the client can't handle it
         return {k: v for k, v in bot_response.items() if not k.startswith('recipient_id')}
 
+def __create_env_js(host, port):
+    f = None
+    try:
+        f = open("./static/js/env.js","w+")
+        server_url=os.getenv('API_SERVER_URL', 'http://' + host + ':' + str(port))
+        dict = {'serverUrl': server_url}
+        f.write('Env=' + repr(dict))
+    finally:
+        if f is not None:
+            f.close()
 
 if __name__ == '__main__':
     host = os.getenv('HOST', '0.0.0.0')
     port = int(os.getenv('PORT', 5000))
+    __create_env_js(host, port)
     web.run_app(app, host=host, port=port)
