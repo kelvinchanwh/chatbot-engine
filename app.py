@@ -47,7 +47,7 @@ app.add_routes([
 ])
 
 # Websocket through SocketIO with support for regular HTTP endpoints
-sio = socketio.AsyncServer(async_mode='aiohttp')
+sio = socketio.AsyncServer(async_mode='aiohttp', cors_allowed_origins='*')
 sio.attach(app)
 
 
@@ -84,8 +84,20 @@ def __parse_bot_response(bot_response):
         # Remove the 'recipient_id', because the client can't handle it
         return {k: v for k, v in bot_response.items() if not k.startswith('recipient_id')}
 
+def __create_env_js(host, port, protocol):
+    f = None
+    try:
+        f= open("./static/js/env.js","w+")
+        dict = {'host': host, 'port': port, 'protocol': protocol}
+        f.write('Env=' + repr(dict))
+    finally:
+        if f is not None:
+            f.close()
 
 if __name__ == '__main__':
     host = os.getenv('HOST', '0.0.0.0')
     port = int(os.getenv('PORT', 5000))
+    protocol = os.getenv('PROTOCOL', 'http')
+
+    __create_env_js(host, port, protocol)
     web.run_app(app, host=host, port=port)
