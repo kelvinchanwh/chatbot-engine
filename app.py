@@ -87,16 +87,16 @@ def __parse_bot_response(bot_response):
 def __create_env_js(host, port):
     f = None
     try:
+        server_url=os.getenv('SERVER_URL', 'http://' + host + ':' + str(port))
         f= open("./static/js/env.js","w+")
-        dict = {'host': host, 'port': port}
+        dict = {'serverUrl': server_url}
         f.write('Env=' + repr(dict))
     finally:
         if f is not None:
             f.close()
 
 if __name__ == '__main__':
-    host = os.getenv('HOST', '0.0.0.0')
+    host = os.getenv('HOST', 'localhost')
     port = int(os.getenv('PORT', 5000))
-
     __create_env_js(host, port)
     web.run_app(app, host=host, port=port)

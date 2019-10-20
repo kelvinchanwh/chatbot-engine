@@ -8,14 +8,14 @@ $(document).ready(function() {
     localStorage.clear();
 
     // Support TLS-specific URLs, when appropriate.
-    if (window.location.protocol == "https:") {
-        var ws_scheme = "wss:";
+    if (Env.serverUrl.startsWith("https:")) {
+        var ws_scheme = "wss";
     } else {
-        var ws_scheme = "ws:"
+        var ws_scheme = "ws"
     };
 
-    const socketUrl = `${ws_scheme}//${Env.host}:${Env.port}`;
-    const serverUrl = `${location.protocol}//${Env.host}:${Env.port}`;
+    const socketUrl = Env.serverUrl.replace(/(^\w+:|^)\/\//, ws_scheme + '://');
+    const serverUrl = `${Env.serverUrl}`;
 
     WebChat.default.init({
       selector: "#webchat",
