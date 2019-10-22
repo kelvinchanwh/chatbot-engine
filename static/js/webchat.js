@@ -1,8 +1,10 @@
 $(document).ready(function() {
 
   const load_chat = lang => {
+    const container = $( "#webchat" );
+
     // remove the previous chat window, if any
-    $( "#webchat" ).empty();
+    container.empty();
 
     // debug - don't preserve state upon page reload
     localStorage.clear();
@@ -14,8 +16,11 @@ $(document).ready(function() {
         var ws_scheme = "ws"
     };
 
-        const socketUrl = Env.serverUrl.replace(/(^\w+:|^)\/\//, ws_scheme + '://');
+    const socketUrl = Env.serverUrl.replace(/(^\w+:|^)\/\//, ws_scheme + '://');
     const serverUrl = `${Env.serverUrl}`;
+
+    const title = container.attr('data-title');
+    const subtitle = container.attr('data-subtitle');
 
     WebChat.default.init({
       selector: "#webchat",
@@ -24,8 +29,8 @@ $(document).ready(function() {
       customData: { 'lang': lang }, // arbitrary custom data. Stay minimal as this will be added to the socket
       socketUrl: socketUrl,
       socketPath: "/socket.io/",
-      title: "Let's talk!",
-      subtitle: "Practise your vocabulary!",
+      title: title,
+      subtitle: subtitle,
       inputTextFieldHint: "Type a message...",
       connectingText: "Waiting for server...",
       hideWhenNotConnected: false,  // TODO true
