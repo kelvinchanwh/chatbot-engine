@@ -167,23 +167,4 @@
 - espresso macchiato
 
 ## lookup:coffee_types
-- americano
-- black coffee
-- cappuccino
-- chai
-- cortado
-- decaf
-- doppio
-- double
-- dripp coffee
-- half-caff
-- latte
-- long black
-- espresso
-- espressino
-- macchiato
-- mocha
-- pour over
-- brewed coffee
-- iced
-- matcha latte
+config/models/_lookup/coffee_types.txt

@@ -28,6 +28,7 @@ intents:
   - mood_great
   - acknowledge
   - opinion+negative
+  - out_of_scope
 slots:
   coffee_type:
     type: text
