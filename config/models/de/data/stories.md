@@ -52,6 +52,18 @@
 * opinion+negative
   - utter_negative_feedback_reaction  
 
+## acknowledge
+* acknowledge
+  - utter_positive_feedback_reaction
+
+## affirm
+* affirm
+  - utter_positive_feedback_reaction
+
+## fallback story
+* out_of_scope
+  - action_default_fallback
+
 ## Generated Story 7713572701080784553
 * coffee
     - action_coffee

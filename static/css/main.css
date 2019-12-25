@@ -20,7 +20,7 @@ body {
 
 .languagepicker:hover {
 	/* don't forget the 1px border */
-	height: 81px;
+	height: 121px;
 }
 
 .languagepicker a{

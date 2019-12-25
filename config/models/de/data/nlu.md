@@ -102,17 +102,5 @@
 - milchkaffee
 
 ## lookup:coffee_types
-- americano
-- cappuccino
-- chai
-- decaf
-- doppio
-- double
-- half-caff
-- latte
-- macchiato
-- mocha
-- pour over
-- brewed coffee
-- iced
-- matcha latte
+config/models/_lookup/coffee_types.txt
+

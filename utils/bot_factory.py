@@ -12,7 +12,8 @@ DEFAULT_LANG = 'en'
 
 SUPPORTED_LANGS = {
     DEFAULT_LANG: 'english',
-    'de': 'german'
+    'de': 'german',
+    'sv': 'swedish',
 }
 
 class LazyDict(Mapping):

@@ -7,7 +7,14 @@ pipeline: supervised_embeddings
 # https://rasa.com/docs/rasa/core/policies/
 policies:
   - name: MemoizationPolicy
-  - name: KerasPolicy
+  - name: "KerasPolicy"
+    featurizer:
+      - name: MaxHistoryTrackerFeaturizer
+        max_history: 5
+        state_featurizer:
+          - name: BinarySingleStateFeaturizer
+  - name: "MemoizationPolicy"
+    max_history: 5
   - name: MappingPolicy
   - name: "FallbackPolicy"
     nlu_threshold: 0.4

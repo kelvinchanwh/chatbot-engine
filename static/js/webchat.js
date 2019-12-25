@@ -52,4 +52,7 @@ $(document).ready(function() {
   $("#choice_de").click(function() {
       load_chat('de');
   });
+  $("#choice_sv").click(function() {
+      load_chat('sv');
+  });
 });

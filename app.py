@@ -28,7 +28,7 @@ async def webhook(request):
     """Webhook to retrieve action calls."""
     action_call = await request.json()
     try:
-        response = executor.run(action_call)
+        response = await executor.run(action_call)
     except ActionExecutionRejection as e:
         logger.error(str(e))
         response = {"error": str(e), "action_name": e.action_name}
