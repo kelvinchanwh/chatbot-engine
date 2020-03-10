@@ -13,4 +13,7 @@ services:
       - HOST=0.0.0.0
       - PORT=8080
       - ACTION_ENDPOINT=http://localhost:8080/webhook
+      - MAILCHIMP_API_KEY=<YOUR_API_KEY>
+      - MAILCHIMP_USER=<YOUR_USER>
+      - MAILCHIMP_LIST_ID=<YOUR_LIST_ID>
     restart: always

@@ -2,66 +2,125 @@
 ---
 actions:
   - action_cheer_up
-  - action_coffee
-  - action_confirm_coffee
+  - action_contribute
   - action_default_fallback
-  - action_joke
-  - action_welcome
+  - action_about_me
+  - action_subscribe
+  - utter_about_me
   - utter_advice
-  - utter_goodbye
+  - utter_ask_email
+  - utter_bye
+  - utter_contribute
+  - utter_cost
+  - utter_events
   - utter_greet
   - utter_happy
+  - utter_languages
+  - utter_my_age
   - utter_negative_feedback_reaction
   - utter_positive_feedback_reaction
+  - utter_restaurant
+  - utter_subscribe
+  - utter_tech
+  - utter_time
+  - utter_weather
+  - utter_welcome
+  - utter_who_you_are
+  - utter_confirmation_email
+  - utter_already_subscribed
+  - utter_no_email
+
 entities:
-  - coffee_type
+  - email
+
 intents:
-  - coffee
-  - coffee_type
-  - opinion+positive
-  - bot_welcome
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_unhappy
-  - mood_great
   - acknowledge
+  - affirm
+  - ask_age
+  - ask_are_you_bot
+  - ask_cost
+  - ask_events
+  - ask_languages
+  - ask_faq
+  - ask_how_contribute
+  - ask_restaurant
+  - ask_tech
+  - ask_time
+  - ask_weather
+  - ask_what_can_you_do
+  - ask_whoami
+  - bot_welcome
+  - bye
+  - deny
+  - enter_email
+  - greet
+  - insult
   - opinion+negative
+  - opinion+positive
   - out_of_scope
-slots:
-  coffee_type:
-    type: text
+  - subscribe
+
 templates:
+  utter_about_me:
+    - text: >
+        I am a prototype of a multilingual assistant.
+        Feel free to try my [German](#) skills
+        and share your feedback. Always keen to learn!
   utter_advice:
     - text: I trust you will get better. Never give up!
+  utter_ask_email:
+    - text: What's your email address?
+  utter_bye:
+    - text: Bye
+    - text: Chat soon!
+    - text: Nice chatting to you.
+    - text: See ya!
   utter_cheer_up:
     - image: https://i.imgur.com/nGF1K8f.jpg
       text: 'Here is something to cheer you up:'
-  utter_coffee:
-    - text: Sure! That's a great idea.
-    - text: Great idea! Hope it won't affect your sleep tonight.
-    - text: Okay, if you insist.
+  utter_confirmation_email:
+    - text: Ok, you are in!
+  utter_already_subscribed:
+    - text: You're in already mate!
+  utter_contribute:
+    - text: >
+        Glad you asked, contributions are always welcome.
+        You don't have to be a programmer to help.
+  utter_cost:
+    - text: I am for free.
+    - text: Free as in beer.
+    - text: Free as in speech.
+    - text: Free of charge.
   utter_default_fallback:
     - buttons:
-        - payload: coffee
-          title: Coffe please
-        - payload: hi
-          title: Just saying hi
-      text: Ooops, to be frank I didn't quite get you :-) Come again.
+        - payload: contribute
+          title: Contribute
+      text: >
+        Oops, to be frank I didn't quite get you. Come again.
+        If you feel like I am not smart enough, you are probably right.
+        I got a lot to learn. Would you consider to become a contributor?
   utter_did_that_help:
     - text: Did that help you?
-  utter_enjoy_your_drink:
-    - image: /static/images/coffee-156144_1280.png
-      text: Great choice. Here is your {coffee_type}. Enjoy!
-    - image: /static/images/coffee-34251_1280.png
-      text: Enjoy your cup of {coffee_type}!
-  utter_goodbye:
-    - text: Bye
+  utter_events:
+    - text: I am not your event organizer buddy.
+    - text: Dunno, why don't you check EventBrite and the likes?
+    - text: Go ask [Sara](#).
   utter_greet:
+    - text: Hi
+    - text: Hey
     - text: Hey! How are you?
+    - text: How are you doing?
   utter_happy:
     - text: Great carry on!
+  utter_languages:
+    - text: >
+        I speak three languages.
+        Feel free to try my [German](#) or [Swedish](#) skills
+        and share your feedback. Always keen to learn!
+  utter_my_age:
+    - text: I wasn't born yesterday!
+    - text: Old enough to be a bot!
+    - text: Forever young!
   utter_negative_feedback_reaction:
     - text: Sad to hear
     - text: Oh, I can do better than that!
@@ -73,20 +132,42 @@ templates:
     - text: No worries
     - text: My pleasure
     - text: That's ok
+  utter_restaurant:
+    - text: Yeah, I wonder too.
+    - text: No clue, why don't you check TripAdvisor and the likes?
+    - text: Go ask [Sara](#).
+  utter_subscribe:
+    - buttons:
+        - payload: subscribe
+          title: Stay in touch
+      text: Get all the latest news!
+  utter_tech:
+    - text: >
+        I run on Python 3 and the latest stack of [Rasa](#).
+        Check the [readme](#) for all the details.
+  utter_time:
+    - text: Am I your time keeper, huh?
+    - text: That's funny, I was about to ask the same question!
+    - text: Go ask [Sara](#).
   utter_try_again:
     - text: Come again!
     - text: Try something else please.
-  utter_uknown_coffee_type:
-    - text: Hmm, I don't know how to brew this one!
-    - text: Ooops, I've no clue what kind of coffee you mean.
+  utter_weather:
+    - text: I only believe in sunshine.
+    - text: Good questions, you wanna google it?
+    - text: Go ask [Sara](#).
   utter_welcome:
-    - buttons:
-      - payload: hi
-        title: Sounds good
-      - payload: bye
-        title: Maybe later
-      text: Hi, my name is Mr. Bot. Do you want a cup of coffee?
-  utter_which_coffee:
-    - text: Which one do you want?
-    - text: What kind of coffee do you fancy?
-    - text: Americano, latte or something else, perhaps?
+      - buttons:
+        - payload: faq
+          title: About me
+        - payload: subscribe
+          title: Get in touch
+        text: Hi, thanks for trying me out. Let's chat!
+  utter_who_you_are:
+    - text: You must be a wonderful soul.
+    - text: I don't know, we've barely met!
+    - text: Go ask [Sara](#).
+  utter_slots_values:
+    - text: Thanks for subscribing. A confirmation has been sent to {email}
+  utter_no_email:
+    - text: Can I please have your email?
