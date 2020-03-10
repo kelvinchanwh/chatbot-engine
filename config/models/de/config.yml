@@ -6,17 +6,13 @@ pipeline: supervised_embeddings
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
 policies:
-  - name: MemoizationPolicy
-  - name: "KerasPolicy"
-    featurizer:
-      - name: MaxHistoryTrackerFeaturizer
-        max_history: 5
-        state_featurizer:
-          - name: BinarySingleStateFeaturizer
-  - name: "MemoizationPolicy"
-    max_history: 5
-  - name: MappingPolicy
-  - name: "FallbackPolicy"
+  - name: KerasPolicy
+    epochs: 200
+    batch_size: 50
+    max_training_samples: 300
+  - name: FallbackPolicy
     nlu_threshold: 0.4
     core_threshold: 0.3
     fallback_action_name: "action_default_fallback"
+  - name: MemoizationPolicy
+  - name: MappingPolicy

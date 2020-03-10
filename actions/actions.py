@@ -1,32 +1,32 @@
-import requests
+import os
+from typing import Text
 from rasa_sdk import Action
+from actions.clients.mailchimp_client import MailChimpClient
 
 
-class ActionJoke(Action):
+class ActionAboutMe(Action):
     def name(self):
-        return "action_joke"
+        return "action_about_me"
 
     def run(self, dispatcher, tracker, domain):
-        request = requests.get('http://api.icndb.com/jokes/random').json()  # make an api call
-        joke = request['value']['joke']  # extract a joke from returned json response
-        dispatcher.utter_message(joke)  # send the message back to the user
-        return []
-
-
-class ActionWelcome(Action):
-    def name(self):
-        return "action_welcome"
-
-    def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_template("utter_welcome", tracker)
-        return []
-
-class ActionDefaultFallback(Action):
-    def name(self):
-        return "action_default_fallback"
-
-    def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_template("utter_default_fallback", tracker)
+        message = {
+            "type":"template",
+            "payload":{
+                "template_type":"generic",
+                "elements":[
+                    {
+                        "title":"Visit our website",
+                        "buttons":[
+                            {
+                                "title":"Project GitLab",
+                                "url": "https://gitlab.com/langnerd/chatbot-engine"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        dispatcher.utter_message(attachment=message)
         return []
 
 
@@ -40,25 +40,62 @@ class ActionCheerUp(Action):
         return []
 
 
-class ActionCoffee(Action):
+class ActionContribute(Action):
     def name(self):
-        return "action_coffee"
+        return "action_contribute"
 
     def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_template("utter_coffee", tracker)
-        dispatcher.utter_template("utter_which_coffee", tracker)
+        message = {
+            "type":"template",
+            "payload":{
+                "template_type":"generic",
+                "elements":[
+                    {
+                        "title":"See how you can make a difference!",
+                        "buttons":[
+                            {
+                                "title":"Become a contributor",
+                                "url": "https://gitlab.com/langnerd/chatbot-engine"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+        dispatcher.utter_message(attachment=message)
         return []
 
 
-class ActionConfirmCoffee(Action):
+class ActionDefaultFallback(Action):
     def name(self):
-        return "action_confirm_coffee"
+        return "action_default_fallback"
 
     def run(self, dispatcher, tracker, domain):
-        coffee_type = tracker.get_slot('coffee_type')
-        if not coffee_type:
-            dispatcher.utter_template("utter_uknown_coffee_type", tracker)
-            dispatcher.utter_template("utter_try_again", tracker)
+        dispatcher.utter_template("utter_default_fallback", tracker)
+        return []
+
+
+class ActionSubscribe(Action):
+    """Asks for the user's email, calls the newsletter API and signs the user up"""
+    def name(self) -> Text:
+        return "action_subscribe"
+
+    def run(self, dispatcher, tracker, domain):
+        email = next(tracker.get_latest_entity_values("email"), None)
+
+        if email:
+            client = MailChimpClient(os.getenv('MAILCHIMP_API_KEY'), os.getenv('MAILCHIMP_USER'))
+            # if the email is already subscribed, this returns False
+            added_to_list = client.subscribe(os.getenv('MAILCHIMP_LIST_ID'), email)
+
+            # utter submit template
+            if added_to_list:
+                dispatcher.utter_message(template="utter_confirmation_email")
+            else:
+                dispatcher.utter_message(template="utter_already_subscribed")
         else:
-            dispatcher.utter_template("utter_enjoy_your_drink", tracker)
+            # no entity was picked up, we want to ask again
+            dispatcher.utter_message(template="utter_no_email")
+
         return []
+

@@ -6,3 +6,5 @@ rasa-sdk==1.6.0
 # Rasa requirements
 multidict==4.6.1
 
+# External services
+mailchimp3==3.0.12

@@ -46,6 +46,9 @@ app.add_routes([
     web.static('/static', './static')
 ])
 
+# Instantiate all bot agents
+bots = BotFactory.createAll()
+
 # Websocket through SocketIO with support for regular HTTP endpoints
 sio = socketio.AsyncServer(async_mode='aiohttp', cors_allowed_origins='*')
 sio.attach(app)
@@ -65,7 +68,7 @@ async def on_user_uttered(sid, message):
     custom_data = message.get('customData', {})
     lang = custom_data.get('lang', 'en')
     user_message = message.get('message', '')
-    bot_responses = await BotFactory.getInstance(lang).handle_text(user_message)
+    bot_responses = await bots[lang].handle_text(user_message) #await BotFactory.getOrCreate(lang).handle_text(user_message)
     for bot_response in bot_responses:
         json = __parse_bot_response(bot_response)
         await sio.emit('bot_uttered', json, room=sid)
