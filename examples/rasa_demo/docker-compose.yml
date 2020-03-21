@@ -1,12 +1,12 @@
 version: '3.0'
 services:
   web:
-    build: .
+    build: ../..
     volumes:
       - ./models/:/app/models
     entrypoint:
       - python
-      - app.py
+      - ./examples/rasa_demo/app.py
     ports:
       - "8080:8080"
     environment:
@@ -16,4 +16,5 @@ services:
       - MAILCHIMP_API_KEY=<YOUR_API_KEY>
       - MAILCHIMP_USER=<YOUR_USER>
       - MAILCHIMP_LIST_ID=<YOUR_LIST_ID>
+      - APP_DIR=./examples/rasa_demo
     restart: always

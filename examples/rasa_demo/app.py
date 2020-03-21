@@ -5,8 +5,11 @@ import socketio
 from aiohttp import web
 from rasa_sdk.executor import ActionExecutor
 from rasa_sdk.interfaces import ActionExecutionRejection
-from utils.bot_factory import BotFactory
 
+import sys
+sys.path.append('.')
+
+from utils.bot_factory import BotFactory
 
 logging.basicConfig(level=logging.WARN,
                     format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
@@ -19,7 +22,7 @@ executor.register_package('actions')
 
 # Home page
 async def index(request):
-    index_file = open('./templates/index.html')
+    index_file = open('examples/rasa_demo/templates/index.html')
     return web.Response(body=index_file.read().encode('utf-8'), headers={'content-type': 'text/html'})
 
 
@@ -43,7 +46,7 @@ app = web.Application()
 app.add_routes([
     web.get('/', index),
     web.post('/webhook', webhook),
-    web.static('/static', './static')
+    web.static('/static', 'examples/rasa_demo/static')
 ])
 
 # Instantiate all bot agents
@@ -90,7 +93,7 @@ def __parse_bot_response(bot_response):
 def __create_env_js(host, port):
     f = None
     try:
-        f = open("./static/js/env.js","w+")
+        f = open("examples/rasa_demo/static/js/env.js", "w+")
         server_url=os.getenv('API_SERVER_URL', 'http://' + host + ':' + str(port))
         dict = {'serverUrl': server_url}
         f.write('Env=' + repr(dict))

@@ -54,7 +54,8 @@ class BotFactory:
     return Path(path).is_file()
 
   def __get_model(self, lang):
-    return '/app/models/chat-model-{}.tar.gz'.format(lang)
+    app_dir = os.getenv('APP_DIR')
+    return '/app/{}/models/chat-model-{}.tar.gz'.format(app_dir, lang)
 
   @staticmethod
   def getOrCreate(lang):

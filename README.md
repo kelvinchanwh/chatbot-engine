@@ -28,10 +28,10 @@ In fact, given the simplicity of the model in the demo, it can be trained for an
 You can also change the [NLP pipeline](https://rasa.com/docs/rasa/nlu/choosing-a-pipeline) as you please.
 
 ### Add a custom action
-Either amend the [actions.py](actions/actions.py) script or drop a new script to the [actions](actions) module.
+Either amend the [actions.py](examples/rasa_demo/actions/actions.py) script or drop a new script to the [actions](examples/rasa_demo/actions) module.
 
 ### Write your model from scratch
-Drop a new model config in the [models](config/models) directory. Have a look at the existing examples.
+Drop a new model config in the [models](examples/rasa_demo/config/models) directory. Have a look at the existing examples.
 
 ## Architecture
 
