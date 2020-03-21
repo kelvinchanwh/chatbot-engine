@@ -1,0 +1,92 @@
+%YAML 1.1
+---
+actions:
+  - action_cheer_up
+  - action_coffee
+  - action_confirm_coffee
+  - action_default_fallback
+  - action_joke
+  - action_welcome
+  - utter_advice
+  - utter_goodbye
+  - utter_greet
+  - utter_happy
+  - utter_negative_feedback_reaction
+  - utter_positive_feedback_reaction
+entities:
+  - coffee_type
+intents:
+  - coffee
+  - coffee_type
+  - opinion+positive
+  - bot_welcome
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_unhappy
+  - mood_great
+  - acknowledge
+  - opinion+negative
+  - out_of_scope
+slots:
+  coffee_type:
+    type: text
+templates:
+  utter_advice:
+    - text: I trust you will get better. Never give up!
+  utter_cheer_up:
+    - image: https://i.imgur.com/nGF1K8f.jpg
+      text: 'Here is something to cheer you up:'
+  utter_coffee:
+    - text: Sure! That's a great idea.
+    - text: Great idea! Hope it won't affect your sleep tonight.
+    - text: Okay, if you insist.
+  utter_default_fallback:
+    - buttons:
+        - payload: coffee
+          title: Coffe please
+        - payload: hi
+          title: Just saying hi
+      text: Ooops, to be frank I didn't quite get you :-) Come again.
+  utter_did_that_help:
+    - text: Did that help you?
+  utter_enjoy_your_drink:
+    - image: /static/images/coffee-156144_1280.png
+      text: Great choice. Here is your {coffee_type}. Enjoy!
+    - image: /static/images/coffee-34251_1280.png
+      text: Enjoy your cup of {coffee_type}!
+  utter_goodbye:
+    - text: Bye
+  utter_greet:
+    - text: Hey! How are you?
+  utter_happy:
+    - text: Great carry on!
+  utter_negative_feedback_reaction:
+    - text: Sad to hear
+    - text: Oh, I can do better than that!
+    - text: Hmm, you are hard to please, aren't you.
+    - text: Okay
+  utter_positive_feedback_reaction:
+    - text: You are welcome
+    - text: Welcome!
+    - text: No worries
+    - text: My pleasure
+    - text: That's ok
+  utter_try_again:
+    - text: Come again!
+    - text: Try something else please.
+  utter_uknown_coffee_type:
+    - text: Hmm, I don't know how to brew this one!
+    - text: Ooops, I've no clue what kind of coffee you mean.
+  utter_welcome:
+    - buttons:
+        - payload: hi
+          title: Sounds good
+        - payload: bye
+          title: Maybe later
+      text: Hi, my name is Mr. Bot. Do you want a cup of coffee?
+  utter_which_coffee:
+    - text: Which one do you want?
+    - text: What kind of coffee do you fancy?
+    - text: Americano, latte or something else, perhaps?

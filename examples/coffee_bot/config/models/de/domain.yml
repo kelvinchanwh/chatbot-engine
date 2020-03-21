@@ -1,0 +1,94 @@
+%YAML 1.1
+---
+actions:
+  - action_cheer_up
+  - action_coffee
+  - action_confirm_coffee
+  - action_default_fallback
+  - action_joke
+  - action_welcome
+  - utter_advice
+  - utter_goodbye
+  - utter_greet
+  - utter_happy
+  - utter_negative_feedback_reaction
+  - utter_positive_feedback_reaction
+entities:
+  - coffee_type
+intents:
+  - coffee
+  - coffee_type
+  - opinion+positive
+  - bot_welcome
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_unhappy
+  - mood_great
+  - acknowledge
+  - opinion+negative
+slots:
+  coffee_type:
+    type: text
+templates:
+  utter_advice:
+    - text: Ich vertraue darauf, dass es dir besser gehen wird. Gib nie auf!
+  utter_cheer_up:
+    - image: https://i.imgur.com/nGF1K8f.jpg
+      text: 'Hier ist etwas, um dich aufzuheitern:'
+  utter_coffee:
+    - text: Bestimmt! Das ist eine großartige Idee.
+    - text: Großartige Idee! Hoffe, es wird deinen Schlaf heute Nacht nicht beeinträchtigen.
+    - text: Okay, wenn du darauf bestehst.
+  utter_default_fallback:
+    - buttons:
+        - payload: coffee
+          title: Kann ich kaffee bekommen?
+        - payload: sad
+          title: Ich fühle mich traurig
+        - payload: hi
+          title: Wollte nur "Hallo" sagen
+        - payload: bye
+          title: Nee, bis dann!
+      text: Hoppla, um ehrlich zu sein, ich habe dich nicht ganz verstanden :-) Noch einmal bitte.
+  utter_did_that_help:
+    - text: Hat es dir geholfen?
+  utter_enjoy_your_drink:
+    - image: /static/images/coffee-156144_1280.png
+      text: Schöne Wahl. Hier ist dein {coffee_type}. Genieß es!
+    - image: /static/images/coffee-34251_1280.png
+      text: Genieß deine Tasse {coffee_type}!
+  utter_goodbye:
+    - text: Tschüss
+  utter_greet:
+    - text: Hallo! Wie geht es dir?
+  utter_happy:
+    - text: Super, mach weiter!
+  utter_negative_feedback_reaction:
+    - text: Tut mir Leid.
+    - text: Oh, ich kann mehr Zustande bringen!
+    - text: Hmm, du bist schwer zu befriedigen, oder?
+    - text: In Ordnung
+  utter_positive_feedback_reaction:
+    - text: Bitte schön
+    - text: Welcome!
+    - text: In Ordnung
+    - text: Gern geschehen
+    - text: Kein Problem
+  utter_try_again:
+    - text: Noch einmal bitte!
+    - text: Versuch gerne etwas anderes.
+  utter_uknown_coffee_type:
+    - text: Hmm, ich weiß nicht, wie ich das brauen soll!
+    - text: Hoppla, ich habe keine Ahnung, was für einen Kaffee du meinst.
+  utter_welcome:
+    - buttons:
+        - payload: hallo
+          title: Klingt gut
+        - payload: tschüss
+          title: Vielleicht später
+      text: Hallo, ich heiße Mr. Bot. Wir können uns grüßen oder du kannst gerne Kaffee bestellen ;-)
+  utter_which_coffee:
+    - text: Was für Kaffee möchtest du trinken?
+    - text: Americano, latte oder vielleicht etwas anderes?
