@@ -1,0 +1,91 @@
+%YAML 1.1
+---
+actions:
+  - action_cheer_up
+  - action_coffee
+  - action_confirm_coffee
+  - action_default_fallback
+  - action_joke
+  - action_welcome
+  - utter_advice
+  - utter_goodbye
+  - utter_greet
+  - utter_happy
+  - utter_negative_feedback_reaction
+  - utter_positive_feedback_reaction
+entities:
+  - coffee_type
+intents:
+  - coffee
+  - coffee_type
+  - opinion+positive
+  - bot_welcome
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_unhappy
+  - mood_great
+  - acknowledge
+  - opinion+negative
+slots:
+  coffee_type:
+    type: text
+templates:
+  utter_advice:
+    - text: Jag litar på att du kommer att bli bättre. Ge aldrig upp!
+  utter_cheer_up:
+    - image: https://i.imgur.com/nGF1K8f.jpg
+      text: 'Här är något som hejar dig upp:'
+  utter_coffee:
+    - text: Visst! Det är en bra idé.
+    - text: Bra idé! Hoppas att det inte påverkar din sömn ikväll.
+    - text: Okej, om du insisterar.
+  utter_default_fallback:
+    - buttons:
+        - payload: coffee
+          title: Kaffe tack
+        - payload: hi
+          title: Säger bara hej
+      text: Oj, för att vara uppriktig fick jag dig inte riktigt :-) Kom igen.
+  utter_did_that_help:
+    - text: Hjälpte det dig?
+  utter_enjoy_your_drink:
+    - image: /static/images/coffee-156144_1280.png
+      text: Bra val. Här är din {coffee_type}. Njut av!
+    - image: /static/images/coffee-34251_1280.png
+      text: Njut av din kopp {coffee_type}!
+  utter_goodbye:
+    - text: Hejdå
+  utter_greet:
+    - text: Hallå! Hur mår du?
+  utter_happy:
+    - text: Bra, fortsätt!
+  utter_negative_feedback_reaction:
+    - text: Tråkigt att höra
+    - text: Åh, jag kan göra bättre än så!
+    - text: Hmm, du är svår att behaga, eller hur?
+    - text: Okej
+  utter_positive_feedback_reaction:
+    - text: Varsågod
+    - text: Välkommen!
+    - text: Inga problem
+    - text:Mitt nöje
+    - text: Det är ok
+  utter_try_again:
+    - text: Kom igen!
+    - text: Prova något annat snälla.
+  utter_uknown_coffee_type:
+    - text: Hmm, jag vet inte hur man brygger den här!
+    - text: Oj, jag har ingen aning vilken typ av kaffe du menar.
+  utter_welcome:
+    - buttons:
+        - payload: hej
+          title: Låter bra
+        - payload: Hejdå
+          title: Kanske senare
+      text: Hej, jag heter Mr. Bot. Vill du ha en kopp kaffe?
+  utter_which_coffee:
+    - text: Vilken vill du ha?
+    - text: Vilken typ av kaffe tycker du om?
+    - text: Americano, latte eller något annat, kanske?

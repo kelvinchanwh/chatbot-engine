@@ -1,0 +1,8 @@
+production:
+  stage: deploy
+  script:
+    - apt-get update -qy
+    - apt-get install -y nodejs
+    - apt-get install -y gunicorn
+    - gem install dpl
+    - dpl --provider=heroku --app=chatbot-barista --api-key=$HEROKU_API_KEY
