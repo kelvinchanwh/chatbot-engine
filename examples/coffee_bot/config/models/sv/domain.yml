@@ -16,22 +16,23 @@ actions:
 entities:
   - coffee_type
 intents:
+  - acknowledge
+  - affirm
+  - bot_welcome
   - coffee
   - coffee_type
-  - opinion+positive
-  - bot_welcome
-  - greet
-  - goodbye
-  - affirm
   - deny
-  - mood_unhappy
+  - goodbye
+  - greet
   - mood_great
-  - acknowledge
+  - mood_unhappy
   - opinion+negative
+  - opinion+positive
+  - out_of_scope
 slots:
   coffee_type:
     type: text
-templates:
+responses:
   utter_advice:
     - text: Jag litar på att du kommer att bli bättre. Ge aldrig upp!
   utter_cheer_up:

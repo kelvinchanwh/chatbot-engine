@@ -91,6 +91,15 @@
 - danke
 - vielen dank
 
+## intent:out_of_scope
+- blah
+- just random stuff
+- whatever
+- wofhohewoihfewoofrw
+- yadyyadyda
+- owfhwoofwwf wofihwewf 70w90fwy0wyfw
+- 42
+
 ## synonym:americano
 - long black
 - american coffee
@@ -102,5 +111,5 @@
 - milchkaffee
 
 ## lookup:coffee_types
-config/models/_lookup/coffee_types.txt
+examples/coffee_bot/config/models/_lookup/coffee_types.txt
 
