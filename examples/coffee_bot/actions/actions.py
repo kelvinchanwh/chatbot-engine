@@ -18,7 +18,7 @@ class ActionWelcome(Action):
     return "action_welcome"
 
   def run(self, dispatcher, tracker, domain):
-    dispatcher.utter_template("utter_welcome", tracker)
+    dispatcher.utter_message(template="utter_welcome")
     return []
 
 class ActionDefaultFallback(Action):
@@ -26,7 +26,7 @@ class ActionDefaultFallback(Action):
     return "action_default_fallback"
 
   def run(self, dispatcher, tracker, domain):
-    dispatcher.utter_template("utter_default_fallback", tracker)
+    dispatcher.utter_message(template="utter_default_fallback")
     return []
 
 
@@ -35,8 +35,8 @@ class ActionCheerUp(Action):
     return "action_cheer_up"
 
   def run(self, dispatcher, tracker, domain):
-    dispatcher.utter_template("utter_cheer_up", tracker)
-    dispatcher.utter_template("utter_did_that_help", tracker)
+    dispatcher.utter_message(template="utter_cheer_up")
+    dispatcher.utter_message(template="utter_did_that_help")
     return []
 
 
@@ -45,8 +45,8 @@ class ActionCoffee(Action):
     return "action_coffee"
 
   def run(self, dispatcher, tracker, domain):
-    dispatcher.utter_template("utter_coffee", tracker)
-    dispatcher.utter_template("utter_which_coffee", tracker)
+    dispatcher.utter_message(template="utter_coffee")
+    dispatcher.utter_message(template="utter_which_coffee")
     return []
 
 
@@ -57,8 +57,8 @@ class ActionConfirmCoffee(Action):
   def run(self, dispatcher, tracker, domain):
     coffee_type = tracker.get_slot('coffee_type')
     if not coffee_type:
-      dispatcher.utter_template("utter_uknown_coffee_type", tracker)
-      dispatcher.utter_template("utter_try_again", tracker)
+      dispatcher.utter_message(template="utter_uknown_coffee_type")
+      dispatcher.utter_message(template="utter_try_again")
     else:
-      dispatcher.utter_template("utter_enjoy_your_drink", tracker)
+      dispatcher.utter_message(template="utter_enjoy_your_drink")
     return []

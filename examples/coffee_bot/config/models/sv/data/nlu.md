@@ -160,4 +160,5 @@
 - espresso macchiato
 
 ## lookup:coffee_types
-config/models/_lookup/coffee_types.txt
+examples/coffee_bot/config/models/_lookup/coffee_types.txt
+

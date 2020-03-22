@@ -1,5 +1,5 @@
 #!/bin/bash
-# set -x
+set -x
 
 # Make the script runnable from any directory
 cd `dirname "$0"`
@@ -9,10 +9,10 @@ set -o errexit          # Exit on most errors
 set -o errtrace         # Make sure any error trap is inherited
 set -o pipefail         # Use last non-zero exit code in a pipeline
 
-if [ ! -f "docker-compose.yml" ]; then
-  echo "docker-compose.yml not found. Have you deleted it by any chance?"
-  exit 1;
-fi
+#if [ ! -f "docker-compose.yml" ]; then
+#  echo "docker-compose.yml not found. Have you deleted it by any chance?"
+#  exit 1;
+#fi
 
 function start() {
   echo "Starting all services .."
@@ -36,14 +36,14 @@ function stop() {
 
 function train() {
   if [ $# -ne 2 ]; then
-    echo "Please provide model locale, for example: en"
+    echo "Please provide project location (ex: examples/rasa_demo) and the target language (ex: en)"
   else
-    train_model_locale "$1"
+    train_model_locale "$1" "$2"
   fi
 }
 
 function train_model_locale() {
-  config_root="config/models/$1"
+  config_root="$1/config/models/$2"
   config="$config_root/config.yml"
   domain="$config_root/domain.yml"
   data="$config_root/data"
@@ -54,12 +54,12 @@ function train_model_locale() {
   fi
 
   docker run -v $(pwd):/app \
-    rasa/rasa:1.6.0-full train \
+    rasa/rasa:1.8.2-full train \
     --config "$config" \
     --domain "$domain" \
     --data "$data" \
-    --out models \
-    --fixed-model-name "chat-model-$1"
+    --out "$1/models" \
+    --fixed-model-name "chat-model-$2"
 }
 
 function interactive_learning() {
