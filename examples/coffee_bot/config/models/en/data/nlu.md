@@ -140,7 +140,6 @@
 - thank you
 - thx
 - ty
-- ty
 
 ## intent:out_of_scope
 - blah

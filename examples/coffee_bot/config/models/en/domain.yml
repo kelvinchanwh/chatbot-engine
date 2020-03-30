@@ -16,23 +16,23 @@ actions:
 entities:
   - coffee_type
 intents:
-  - acknowledge
-  - affirm
-  - bot_welcome
   - coffee
   - coffee_type
-  - deny
-  - goodbye
-  - greet
-  - mood_great
-  - mood_unhappy
-  - opinion+negative
   - opinion+positive
+  - bot_welcome
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_unhappy
+  - mood_great
+  - acknowledge
+  - opinion+negative
   - out_of_scope
 slots:
   coffee_type:
     type: text
-responses:
+templates:
   utter_advice:
     - text: I trust you will get better. Never give up!
   utter_cheer_up:

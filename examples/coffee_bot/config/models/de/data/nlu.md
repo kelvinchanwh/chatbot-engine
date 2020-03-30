@@ -17,6 +17,7 @@
 
 ## intent:coffee
 - kaffee
+- coffee
 - ich will kaffee
 - kaffee trinken
 - ich hätte gern eine tasse kaffee
