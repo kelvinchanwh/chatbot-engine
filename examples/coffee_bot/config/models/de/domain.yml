@@ -32,7 +32,7 @@ intents:
 slots:
   coffee_type:
     type: text
-responses:
+templates:
   utter_advice:
     - text: Ich vertraue darauf, dass es dir besser gehen wird. Gib nie auf!
   utter_cheer_up:
@@ -44,11 +44,9 @@ responses:
     - text: Okay, wenn du darauf bestehst.
   utter_default_fallback:
     - buttons:
-        - payload: coffee
+        - payload: kaffee
           title: Kann ich kaffee bekommen?
-        - payload: sad
-          title: Ich fühle mich traurig
-        - payload: hi
+        - payload: hallo
           title: Wollte nur "Hallo" sagen
         - payload: bye
           title: Nee, bis dann!

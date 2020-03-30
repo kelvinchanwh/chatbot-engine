@@ -1,24 +1,17 @@
 # Configuration for Rasa NLU.
 # https://rasa.com/docs/rasa/nlu/components/
-language: "sv"
-pipeline:
-  - name: "WhitespaceTokenizer"
-  - name: "RegexFeaturizer"
-  - name: "CRFEntityExtractor"
-  - name: "EntitySynonymMapper"
-  - name: "CountVectorsFeaturizer"
-  - name: "CountVectorsFeaturizer"
-    analyzer: "char_wb"
-    min_ngram: 1
-    max_ngram: 4
-  - name: "DIETClassifier"
+language: sv
+pipeline: supervised_embeddings
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
 policies:
-  - name: "TEDPolicy"
-    max_history: 5
-    epochs: 100
+  - name: "KerasPolicy"
+    featurizer:
+      - name: MaxHistoryTrackerFeaturizer
+        max_history: 5
+        state_featurizer:
+          - name: BinarySingleStateFeaturizer
   - name: "MemoizationPolicy"
     max_history: 5
   - name: MappingPolicy

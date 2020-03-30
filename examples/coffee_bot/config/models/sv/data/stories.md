@@ -64,11 +64,3 @@
 * out_of_scope
   - action_default_fallback
 
-## Generated Story 7713572701080784553
-* coffee
-    - action_coffee
-* coffee_type{"coffee_type": "americano"}
-    - slot{"coffee_type": "americano"}
-    - action_confirm_coffee
-* opinion+positive
-    - utter_positive_feedback_reaction

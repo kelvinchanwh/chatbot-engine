@@ -16,23 +16,23 @@ actions:
 entities:
   - coffee_type
 intents:
-  - acknowledge
-  - affirm
-  - bot_welcome
   - coffee
   - coffee_type
-  - deny
-  - goodbye
-  - greet
-  - mood_great
-  - mood_unhappy
-  - opinion+negative
   - opinion+positive
+  - bot_welcome
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_unhappy
+  - mood_great
+  - acknowledge
+  - opinion+negative
   - out_of_scope
 slots:
   coffee_type:
     type: text
-responses:
+templates:
   utter_advice:
     - text: Jag litar på att du kommer att bli bättre. Ge aldrig upp!
   utter_cheer_up:
@@ -44,9 +44,9 @@ responses:
     - text: Okej, om du insisterar.
   utter_default_fallback:
     - buttons:
-        - payload: coffee
+        - payload: kaffe
           title: Kaffe tack
-        - payload: hi
+        - payload: hej
           title: Säger bara hej
       text: Oj, för att vara uppriktig fick jag dig inte riktigt :-) Kom igen.
   utter_did_that_help:

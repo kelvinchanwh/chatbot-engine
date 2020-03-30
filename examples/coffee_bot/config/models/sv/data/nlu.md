@@ -22,6 +22,7 @@
 
 ## intent:coffee
 - kaffe
+- coffee
 - jag vill ha kaffe
 - kaffetid
 - kan jag få kaffe snälla?
@@ -44,32 +45,32 @@
 - kaffe tack
 
 ## intent:coffee_type
-- Jag vill beställa en kopp [americano] (coffee_type)
-- Jag vill beställa en kopp [espresso] (coffee_type)
-- Jag vill beställa en kopp [black coffee] (coffee_type)
-- kan jag få en [cappuccino] (coffee_type)?
-- kan jag få en [chai] (coffee_type)?
-- kan jag få en [cortado] (coffee_type)?
-- kan jag få en [espressino] (coffee_type)?
-- Jag skulle vilja ha lite [cortado] (coffee_type)
-- [decaf] (coffee_type) pls
-- [cappuccino] (coffee_type), snälla
-- [chai] (coffee_type) tack
-- [decaf] (coffee_type)
-- en kopp [doppio] (coffee_type)
-- en [dubbel] (coffee_type), thx
-- Jag vill ha [dropp kaffe] (coffee_type), tack!
-- bara en [halv caff] (coffee_type)
-- [latte] (coffee_type) skulle vara trevligt
-- skulle du göra mig till en [long black] (coffee_type), snälla?
-- [long black] (coffee_type), snälla?
-- hmm, [macchiato] (coffee_type)?
-- Jag skulle vilja ha några läckra [macchiato] (coffee_type)
-- [mocha] (coffee_type) thx
-- [pour over] (coffee_type) tack
-- en kopp av [brewed coffee] (coffee_type)
-- några läckra [iced] (coffee_type)
-- skulle du ha [matcha latte] (coffee_type)?
+- Jag vill beställa en kopp [americano](coffee_type)
+- Jag vill beställa en kopp [espresso](coffee_type)
+- Jag vill beställa en kopp [black coffee](coffee_type)
+- kan jag få en [cappuccino](coffee_type)?
+- kan jag få en [chai](coffee_type)?
+- kan jag få en [cortado](coffee_type)?
+- kan jag få en [espressino](coffee_type)?
+- Jag skulle vilja ha lite [cortado](coffee_type)
+- [decaf](coffee_type) pls
+- [cappuccino](coffee_type), snälla
+- [chai](coffee_type) tack
+- [decaf](coffee_type)
+- en kopp [doppio](coffee_type)
+- en [dubbel](coffee_type), thx
+- Jag vill ha [dropp kaffe](coffee_type), tack!
+- bara en [halv caff](coffee_type)
+- [latte](coffee_type) skulle vara trevligt
+- skulle du göra mig till en [long black](coffee_type), snälla?
+- [long black](coffee_type), snälla?
+- hmm, [macchiato](coffee_type)?
+- Jag skulle vilja ha några läckra [macchiato](coffee_type)
+- [mocha](coffee_type) thx
+- [pour over](coffee_type) tack
+- en kopp av [brewed coffee](coffee_type)
+- några läckra [iced](coffee_type)
+- skulle du ha [matcha latte](coffee_type)?
 
 ## intent:deny
 - nej
@@ -161,4 +162,3 @@
 
 ## lookup:coffee_types
 examples/coffee_bot/config/models/_lookup/coffee_types.txt
-

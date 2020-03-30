@@ -16,7 +16,8 @@ set -o pipefail         # Use last non-zero exit code in a pipeline
 
 function start() {
   echo "Starting all services .."
-  docker-compose up -d
+
+  docker-compose -f "$1/docker-compose.yml" up -d
   if [ $? -eq 0 ]; then
     echo "All done"
   else
@@ -54,7 +55,7 @@ function train_model_locale() {
   fi
 
   docker run -v $(pwd):/app \
-    rasa/rasa:1.8.2-full train \
+    rasa/rasa:1.6.0-full train \
     --config "$config" \
     --domain "$domain" \
     --data "$data" \
@@ -68,11 +69,12 @@ function interactive_learning() {
     exit 1
   fi
 
-  start
+  start $1
 
   if [ $? -eq 0 ]; then
+    config_root="$1/config/models/$2"
     echo "Starting interactive learning session .."
-    docker-compose run rasa interactive --verbose -c "config/$1/$2" -m "models/chat-model-$1-$2.tar.gz" --endpoints config/endpoints.yml
+    docker-compose -f "$1/docker-compose.yml" run rasa interactive --verbose -c "$config_root" -m "$config_root/models/chat-model-$2.tar.gz" --endpoints "$1/config/endpoints.yml"
     echo "All done, happy learning ;-)"
   else
     echo "Services failed to start, exiting .."
