@@ -32,7 +32,7 @@ intents:
 slots:
   coffee_type:
     type: text
-templates:
+responses:
   utter_advice:
     - text: Jag litar på att du kommer att bli bättre. Ge aldrig upp!
   utter_cheer_up:
@@ -71,7 +71,7 @@ templates:
     - text: Varsågod
     - text: Välkommen!
     - text: Inga problem
-    - text:Mitt nöje
+    - text: Mitt nöje
     - text: Det är ok
   utter_try_again:
     - text: Kom igen!

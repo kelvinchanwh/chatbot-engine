@@ -20,6 +20,7 @@ Please note it might take longer the first time for the server to start. There a
 
 ### Train your model
 `./server.sh train [de|en|sv]`
+`./server.sh train ./examples/coffee_bot en`
 
 The script process training data stored in `config/models` and stores the output in the `models` directory.
 
