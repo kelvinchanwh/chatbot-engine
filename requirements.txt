@@ -1,6 +1,6 @@
 python-socketio
 aiohttp
-rasa
+rasa~=2.1.1
 rasa-sdk
 
 # Rasa requirements
