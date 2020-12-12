@@ -1,5 +1,15 @@
 version: '3.0'
 services:
+
+  rasa:
+    image: rasa/rasa:2.1.1-full
+    ports:
+      - 5005:5005
+    volumes:
+      - ./:/app
+    command:
+      - run
+
   web:
     build: ../..
     volumes:
