@@ -35,8 +35,8 @@ class ActionCheerUp(Action):
         return "action_cheer_up"
 
     def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_template("utter_cheer_up", tracker)
-        dispatcher.utter_template("utter_did_that_help", tracker)
+        dispatcher.utter_message(template="utter_cheer_up")
+        dispatcher.utter_message(template="utter_did_that_help")
         return []
 
 
@@ -71,7 +71,7 @@ class ActionDefaultFallback(Action):
         return "action_default_fallback"
 
     def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_template("utter_default_fallback", tracker)
+        dispatcher.utter_message(template="utter_default_fallback")
         return []
 
 
