@@ -22,6 +22,18 @@ Please note it might take longer the first time for the server to start. There a
 `./server.sh train [de|en|sv]`
 `./server.sh train ./examples/coffee_bot en`
 
+### Run using MacOS Terminal 
+`conda activate rasa`
+`cd examples/rasa_bot`
+
+`rasa train --config ./config/models/en/config.yml --domain ./config/models/en/domain.yml --data ./config/models/en/data --out "./models" --fixed-model-name "chat-model-en"`
+
+`rasa run actions --actions actions.actions`
+
+`python3 app.py`
+
+
+
 The script process training data stored in `config/models` and stores the output in the `models` directory.
 
 Currently only three languages are supported, but it's easy to completely change them or add more.
